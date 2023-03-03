@@ -1,11 +1,11 @@
 import './App.css';
 import * as React from 'react';
-import { Container, Typography, TextField, Box, FormControl } from '@mui/material';
+import { Container, Typography, TextField, Box, FormControl, BottomNavigationAction, Paper, BottomNavigation } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import ArrowForwardIosSharpIcon from '@mui/icons-material/ArrowForwardIosSharp';
+import ArchiveIcon from '@mui/icons-material/Archive';
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
@@ -103,31 +103,49 @@ function App() {
 
         <Container disableGutters maxWidth={false}>
 
-          <FormControl sx={{ m: 1, mt: 2, width: "-webkit-fill-available" }} fullWidth>
-            <TextField
-              id="outlined-basic"
-              label="Ricerca TCODE"
-              variant="outlined"
-              size="small"
-              onChange={e => setSearch(e.target.value)}
-            />
-          </FormControl>
+          <Paper square sx={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 10 }} elevation={1}>
+            <FormControl sx={{ m: 1, mt: 2, width: "-webkit-fill-available" }} fullWidth>
+              <TextField
+                id="outlined-basic"
+                label="Ricerca TCODE"
+                variant="outlined"
+                size="small"
+                onChange={e => setSearch(e.target.value)}
+              />
+            </FormControl>
+          </Paper>
 
-          {
-            checkKeywords()
-              .map(item => (
-                <Accordion expanded={expanded === item.code} onChange={handleChange(item.code)} key={item.code}>
-                  <AccordionSummary>
-                    <Typography sx={{ fontWeight: 'bold' }}>{item.code}</Typography>
-                    <Typography sx={{ ml: 1 }}>{item.descr}</Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    <Typography>{item.descr}</Typography>
-                    <Typography sx={{ fontStyle: 'italic' }}>Keywords: {item.keywords.join(" ")} ({item.value})</Typography>
-                  </AccordionDetails>
-                </Accordion>
-              ))
-          }
+          <Box sx={{ pb: "56px", pt: "60px" }}>
+            {
+              checkKeywords()
+                .map(item => (
+                  <Accordion expanded={expanded === item.code} onChange={handleChange(item.code)} key={item.code}>
+                    <AccordionSummary>
+                      <Typography sx={{ fontWeight: 'bold' }}>{item.code}</Typography>
+                      <Typography sx={{ ml: 1 }}>{item.descr}</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>{item.descr}</Typography>
+                      <Typography sx={{ fontStyle: 'italic' }}>Keywords: {item.keywords.join(" ")} ({item.value})</Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                ))
+            }
+          </Box>
+
+          <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+            <BottomNavigation
+              showLabels
+            // value={value}
+            // onChange={(event, newValue) => {
+            //   setValue(newValue);
+            // }}
+            >
+              <BottomNavigationAction label="Recents" icon={<ArchiveIcon />} />
+              <BottomNavigationAction label="Favorites" icon={<ArchiveIcon />} />
+              <BottomNavigationAction label="Archive" icon={<ArchiveIcon />} />
+            </BottomNavigation>
+          </Paper>
 
         </Container>
 
