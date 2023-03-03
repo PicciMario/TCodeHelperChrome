@@ -71,8 +71,14 @@ function App() {
 
         <Container disableGutters maxWidth={false}>
 
-          <FormControl sx={{ m: 1, width:"-webkit-fill-available" }}>
-            <TextField id="outlined-basic" label="Ricerca TCODE" variant="outlined" onChange={e => setSearch(e.target.value)} />
+          <FormControl sx={{ m: 1, mt: 2, width:"-webkit-fill-available" }} fullWidth>
+            <TextField 
+              id="outlined-basic" 
+              label="Ricerca TCODE" 
+              variant="outlined" 
+              size="small"
+              onChange={e => setSearch(e.target.value)} 
+            />
           </FormControl>
 
           {
