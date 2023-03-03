@@ -11,57 +11,89 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { tcodes } from './data';
 
+const tcodesElab = tcodes.map(item => {
+  let keywords = item.keywords.split(' ').map(key => key.toLowerCase())
+  return { ...item, keywords }
+})
+
+const Accordion = styled((props) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  '&:not(:last-child)': {
+    borderBottom: 0,
+  },
+  '&:before': {
+    display: 'none',
+  },
+}));
+
+const AccordionSummary = styled((props) => (
+  <MuiAccordionSummary
+    // expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
+    {...props}
+  />
+))(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === 'dark'
+      ? 'rgba(255, 255, 255, .05)'
+      : 'rgba(0, 0, 0, .03)',
+  flexDirection: 'row-reverse',
+  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+    transform: 'rotate(90deg)',
+  },
+  '& .MuiAccordionSummary-content': {
+    marginLeft: theme.spacing(0),
+  },
+}));
+
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(1),
+  borderTop: '1px solid rgba(0, 0, 0, .125)',
+}));
+
+const theme = createTheme({
+  typography: {
+    fontSize: 11,
+    fontFamily: "Segoe UI"
+  }
+});
+
 function App() {
 
   const [expanded, setExpanded] = React.useState(false);
   const [search, setSearch] = React.useState('');
 
+  const checkKeywords = () => {
+
+    let searchKeys = search.split(' ').filter(word => word.length >= 2);
+
+    let tcodesWeights = tcodesElab
+      .map(tcodeToCheck => {
+
+        let value = 0;
+
+        if (searchKeys.length == 0) return { ...tcodeToCheck, value };
+
+        tcodeToCheck.keywords.forEach(keyToCheck => {
+          searchKeys.forEach(searchKey => {
+            if (keyToCheck.includes(searchKey)) value++;
+          })
+        });
+
+        return { ...tcodeToCheck, value };
+
+      })
+
+    return tcodesWeights
+      .filter(item => item.value > 0)
+      .sort((a, b) => b.value - a.value);
+
+  }
+
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-
-  let theme = createTheme({
-    typography: {
-      fontSize: 11,
-      fontFamily: "Segoe UI"
-    }
-  });
-
-  const Accordion = styled((props) => (
-    <MuiAccordion disableGutters elevation={0} square {...props} />
-  ))(({ theme }) => ({
-    border: `1px solid ${theme.palette.divider}`,
-    '&:not(:last-child)': {
-      borderBottom: 0,
-    },
-    '&:before': {
-      display: 'none',
-    },
-  }));
-
-  const AccordionSummary = styled((props) => (
-    <MuiAccordionSummary
-      // expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
-      {...props}
-    />
-  ))(({ theme }) => ({
-    backgroundColor:
-      theme.palette.mode === 'dark'
-        ? 'rgba(255, 255, 255, .05)'
-        : 'rgba(0, 0, 0, .03)',
-    flexDirection: 'row-reverse',
-    '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-      transform: 'rotate(90deg)',
-    },
-    '& .MuiAccordionSummary-content': {
-      marginLeft: theme.spacing(0),
-    },
-  }));
-
-  const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-    padding: theme.spacing(1),
-    borderTop: '1px solid rgba(0, 0, 0, .125)',
-  }));
 
   return (
 
@@ -71,19 +103,18 @@ function App() {
 
         <Container disableGutters maxWidth={false}>
 
-          <FormControl sx={{ m: 1, mt: 2, width:"-webkit-fill-available" }} fullWidth>
-            <TextField 
-              id="outlined-basic" 
-              label="Ricerca TCODE" 
-              variant="outlined" 
+          <FormControl sx={{ m: 1, mt: 2, width: "-webkit-fill-available" }} fullWidth>
+            <TextField
+              id="outlined-basic"
+              label="Ricerca TCODE"
+              variant="outlined"
               size="small"
-              onChange={e => setSearch(e.target.value)} 
+              onChange={e => setSearch(e.target.value)}
             />
           </FormControl>
 
           {
-            tcodes
-              .filter(item => item.keywords.toLowerCase().includes(search.toLowerCase()))
+            checkKeywords()
               .map(item => (
                 <Accordion expanded={expanded === item.code} onChange={handleChange(item.code)} key={item.code}>
                   <AccordionSummary>
@@ -92,7 +123,7 @@ function App() {
                   </AccordionSummary>
                   <AccordionDetails>
                     <Typography>{item.descr}</Typography>
-                    <Typography sx={{ fontStyle: 'italic' }}>Keywords: {item.keywords}</Typography>
+                    <Typography sx={{ fontStyle: 'italic' }}>Keywords: {item.keywords.join(" ")} ({item.value})</Typography>
                   </AccordionDetails>
                 </Accordion>
               ))
