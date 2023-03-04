@@ -8,6 +8,7 @@
     "default_title": "Open"
   },
   "permissions":[
-    "scripting"
+    "scripting",
+    "storage"
   ]
 }

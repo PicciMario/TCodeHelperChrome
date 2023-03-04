@@ -1,13 +1,11 @@
 import './App.css';
 import * as React from 'react';
-import { Container, Typography, TextField, Box, FormControl, BottomNavigationAction, Paper, BottomNavigation } from '@mui/material';
-import { styled } from '@mui/material/styles';
-import MuiAccordion from '@mui/material/Accordion';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import ArchiveIcon from '@mui/icons-material/Archive';
 
+import { Container, Typography, TextField, Box, FormControl, BottomNavigationAction, Paper, BottomNavigation } from '@mui/material';
+import ArchiveIcon from '@mui/icons-material/Archive';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+
+import {Accordion, AccordionDetails, AccordionSummary} from './CustomComponents';
 
 import { tcodes } from './data';
 
@@ -15,42 +13,6 @@ const tcodesElab = tcodes.map(item => {
   let keywords = item.keywords.split(' ').map(key => key.toLowerCase())
   return { ...item, keywords }
 })
-
-const Accordion = styled((props) => (
-  <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
-  '&:not(:last-child)': {
-    borderBottom: 0,
-  },
-  '&:before': {
-    display: 'none',
-  },
-}));
-
-const AccordionSummary = styled((props) => (
-  <MuiAccordionSummary
-    // expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: '0.9rem' }} />}
-    {...props}
-  />
-))(({ theme }) => ({
-  backgroundColor:
-    theme.palette.mode === 'dark'
-      ? 'rgba(255, 255, 255, .05)'
-      : 'rgba(0, 0, 0, .03)',
-  flexDirection: 'row-reverse',
-  '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
-    transform: 'rotate(90deg)',
-  },
-  '& .MuiAccordionSummary-content': {
-    marginLeft: theme.spacing(0),
-  },
-}));
-
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-  padding: theme.spacing(1),
-  borderTop: '1px solid rgba(0, 0, 0, .125)',
-}));
 
 const theme = createTheme({
   typography: {
@@ -61,12 +23,37 @@ const theme = createTheme({
 
 function App() {
 
+  // Stato espansione accordion
   const [expanded, setExpanded] = React.useState(false);
+
+  // Stringa di ricerca
   const [search, setSearch] = React.useState('');
 
+  // Recupera stringa di ricerca da local storage (chiave "actualSearch")
+  React.useEffect(() => {
+    console.log('Will mount');
+    chrome.storage.local.get(["actualSearch"], (result) => {
+      console.log("Recuperato result ", result)
+      setSearch(result.actualSearch);
+    });
+    return () => {
+      console.log('Will unmount');
+    };
+  }, []); 
+
+  /**
+   * Effettua filtraggio.
+   * 
+   * Confronta le chiavi estratte dalla stringa di ricerca (variabile `search`) 
+   * e le chiavi di ciascuno dei tcode in `tcodesElab`. Per ciascun TCode 
+   * calcola un punteggio mediante il match (anche parziale) tra i due set di 
+   * keywords. Restituisce array filtrato per punteggio > 0, ordinato per 
+   * punteggio in ordine descrescente.
+   * @returns 
+   */
   const checkKeywords = () => {
 
-    let searchKeys = search.split(' ').filter(word => word.length >= 2);
+    let searchKeys = (search || '').split(' ').filter(word => word.length >= 2);
 
     let tcodesWeights = tcodesElab
       .map(tcodeToCheck => {
@@ -91,9 +78,26 @@ function App() {
 
   }
 
+  /**
+   * Gestisce apertura/chiusura accordion.
+   * @param {*} panel 
+   * @returns 
+   */
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
+
+  /**
+   * Gestisce modifica stringa ricerca.
+   * 
+   * La stringa inserita nel componente viene salvata nello stato e nel 
+   * local storage (chiave "actualSearch").
+   * @param {*} e 
+   */
+  const handleSearchChange = (e) => {
+    chrome.storage.local.set({ actualSearch: e.target.value }).then(() => {});                  
+    setSearch(e.target.value)    
+  }
 
   return (
 
@@ -110,7 +114,8 @@ function App() {
                 label="Ricerca TCODE"
                 variant="outlined"
                 size="small"
-                onChange={e => setSearch(e.target.value)}
+                value={search}
+                onChange={handleSearchChange}
               />
             </FormControl>
           </Paper>
