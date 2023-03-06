@@ -1,18 +1,14 @@
 import './App.css';
 import * as React from 'react';
 
-import { Container, Typography, TextField, Box, FormControl, BottomNavigationAction, Paper, BottomNavigation } from '@mui/material';
+import { Container, Typography, TextField, Box, FormControl, BottomNavigationAction, Paper, BottomNavigation, IconButton, CircularProgress } from '@mui/material';
+
 import ArchiveIcon from '@mui/icons-material/Archive';
+import SyncIcon from '@mui/icons-material/Sync';
+
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import {Accordion, AccordionDetails, AccordionSummary} from './CustomComponents';
-
-import { tcodes } from './data';
-
-const tcodesElab = tcodes.map(item => {
-  let keywords = item.keywords.split(' ').map(key => key.toLowerCase())
-  return { ...item, keywords }
-})
+import { Accordion, AccordionDetails, AccordionSummary } from './CustomComponents';
 
 const theme = createTheme({
   typography: {
@@ -29,17 +25,22 @@ function App() {
   // Stringa di ricerca
   const [search, setSearch] = React.useState('');
 
-  // Recupera stringa di ricerca da local storage (chiave "actualSearch")
+  const [isLoading, setIsLoading] = React.useState(false);
+
+  const [data, setData] = React.useState([]);
+
+  // Recupera stringa di ricerca e cache da local storage
   React.useEffect(() => {
     console.log('Will mount');
-    chrome.storage.local.get(["actualSearch"], (result) => {
+    chrome.storage.local.get(["actualSearch", "actualData"], (result) => {
       console.log("Recuperato result ", result)
-      setSearch(result.actualSearch);
+      setSearch(result.actualSearch || '');
+      setData(result.actualData || []);
     });
     return () => {
       console.log('Will unmount');
     };
-  }, []); 
+  }, []);
 
   /**
    * Effettua filtraggio.
@@ -55,7 +56,7 @@ function App() {
 
     let searchKeys = (search || '').split(' ').filter(word => word.length >= 2);
 
-    let tcodesWeights = tcodesElab
+    let tcodesWeights = data
       .map(tcodeToCheck => {
 
         let value = 0;
@@ -78,6 +79,32 @@ function App() {
 
   }
 
+  const retrieveData = () => {
+
+    let url = 'https://github.com/PicciMario/TCodeHelper/raw/master/tcodes.json';
+
+    setIsLoading(true) <
+      fetch(url)
+        .then(res => res.json())
+        .then(out => {
+
+          setIsLoading(false);
+
+          let formattedData = out.map(item => {
+            let keywords = item.keywords.split(' ').map(key => key.toLowerCase())
+            return { ...item, keywords }
+          })
+
+          setData(formattedData)
+
+          chrome.storage.local.set({ actualData: formattedData }).then(() => { console.log("Saved local cache...") });
+
+          console.log('Checkout this JSON! ', out)
+
+        })
+        .catch(err => { throw err });
+  }
+
   /**
    * Gestisce apertura/chiusura accordion.
    * @param {*} panel 
@@ -95,8 +122,8 @@ function App() {
    * @param {*} e 
    */
   const handleSearchChange = (e) => {
-    chrome.storage.local.set({ actualSearch: e.target.value }).then(() => {});                  
-    setSearch(e.target.value)    
+    chrome.storage.local.set({ actualSearch: e.target.value }).then(() => { });
+    setSearch(e.target.value)
   }
 
   return (
@@ -108,7 +135,7 @@ function App() {
         <Container disableGutters maxWidth={false}>
 
           <Paper square sx={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 10 }} elevation={1}>
-            <FormControl sx={{ m: 1, mt: 2, width: "-webkit-fill-available" }} fullWidth>
+            <FormControl sx={{ m: 1, mt: 2, width: "-webkit-fill-available", display: "flex", flexDirection: 'row' }} fullWidth>
               <TextField
                 id="outlined-basic"
                 label="Ricerca TCODE"
@@ -116,7 +143,11 @@ function App() {
                 size="small"
                 value={search}
                 onChange={handleSearchChange}
+                sx={{ flexGrow: 1 }}
               />
+              <IconButton component="label" onClick={retrieveData} sx={{ ml: 1 }}>
+                {isLoading ? <CircularProgress size="1rem" /> : <SyncIcon />}
+              </IconButton>
             </FormControl>
           </Paper>
 
