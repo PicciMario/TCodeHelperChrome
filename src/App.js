@@ -1,7 +1,22 @@
 import './App.css';
 import * as React from 'react';
 
-import { Container, Typography, TextField, Box, FormControl, BottomNavigationAction, Paper, BottomNavigation, IconButton, CircularProgress } from '@mui/material';
+import {
+  Container,
+  Typography,
+  TextField,
+  Box,
+  FormControl,
+  BottomNavigationAction,
+  Paper,
+  BottomNavigation,
+  IconButton,
+  CircularProgress,
+  Snackbar,
+  Button,
+  Alert,
+  Tooltip
+} from '@mui/material';
 
 import ArchiveIcon from '@mui/icons-material/Archive';
 import SyncIcon from '@mui/icons-material/Sync';
@@ -25,9 +40,19 @@ function App() {
   // Stringa di ricerca
   const [search, setSearch] = React.useState('');
 
+  // Caricamento in corso...
   const [isLoading, setIsLoading] = React.useState(false);
 
+  // Array TCodes
   const [data, setData] = React.useState([]);
+
+  // Apertura notifica
+  const [notifOpen, setNotifOpen] = React.useState(false);
+
+  // Errore (per notifica)
+  const [error, setError] = React.useState(null);
+
+  // --------------------------------------------------------------------------
 
   // Recupera stringa di ricerca e cache da local storage
   React.useEffect(() => {
@@ -79,30 +104,41 @@ function App() {
 
   }
 
+  /**
+   * Recupera dati da url e li salva nello stato e nello storage.
+   */
   const retrieveData = () => {
 
     let url = 'https://github.com/PicciMario/TCodeHelper/raw/master/tcodes.json';
 
-    setIsLoading(true) <
-      fetch(url)
-        .then(res => res.json())
-        .then(out => {
+    console.log(`Retrieving data from ${url}...`)
+    setIsLoading(true);
 
-          setIsLoading(false);
+    fetch(url)
+      .then((res) => {
+        console.log(...res.headers);
+        return res.json()
+      })
+      .then(out => {
 
-          let formattedData = out.map(item => {
-            let keywords = item.keywords.split(' ').map(key => key.toLowerCase())
-            return { ...item, keywords }
-          })
+        setIsLoading(false);
 
-          setData(formattedData)
-
-          chrome.storage.local.set({ actualData: formattedData }).then(() => { console.log("Saved local cache...") });
-
-          console.log('Checkout this JSON! ', out)
-
+        let formattedData = out.map(item => {
+          let keywords = item.keywords.split(' ').map(key => key.toLowerCase())
+          return { ...item, keywords }
         })
-        .catch(err => { throw err });
+
+        console.log("Data retrieved.", formattedData);
+        setData(formattedData);
+        setNotifOpen(true);
+        chrome.storage.local.set({ actualData: formattedData }).then(() => { console.log("Saved local cache.") });
+
+      })
+      .catch(err => {
+        setIsLoading(false);
+        setError(err);
+        setNotifOpen(true);
+      });
   }
 
   /**
@@ -126,6 +162,10 @@ function App() {
     setSearch(e.target.value)
   }
 
+  const closeSnackbar = () => {
+    setNotifOpen(false);
+  }
+
   return (
 
     <div className="App">
@@ -145,13 +185,36 @@ function App() {
                 onChange={handleSearchChange}
                 sx={{ flexGrow: 1 }}
               />
-              <IconButton component="label" onClick={retrieveData} sx={{ ml: 1 }}>
-                {isLoading ? <CircularProgress size="1rem" /> : <SyncIcon />}
-              </IconButton>
+              <Tooltip title="Download TCODES">
+                <IconButton component="label" onClick={retrieveData} sx={{ ml: 1 }}>
+                  {isLoading ? <CircularProgress size="1rem" /> : <SyncIcon />}
+                </IconButton>
+              </Tooltip>
             </FormControl>
           </Paper>
 
           <Box sx={{ pb: "56px", pt: "60px" }}>
+
+            <Snackbar
+              open={notifOpen}
+              autoHideDuration={error ? null : 4000}
+              onClose={closeSnackbar}
+              action={
+                <Button color="inherit" size="small" onClick={closeSnackbar}>
+                  Clear
+                </Button>
+              }
+              sx={{ pb: "56px" }}
+            >
+              <Alert
+                onClose={closeSnackbar}
+                severity={error ? "error" : "success"}
+                sx={{ width: '100%' }}
+              >
+                {error ? `${error}` : `Retrieved ${data.length} TCODES.`}
+              </Alert>
+            </Snackbar>
+
             {
               checkKeywords()
                 .map(item => (
@@ -167,6 +230,7 @@ function App() {
                   </Accordion>
                 ))
             }
+
           </Box>
 
           <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
