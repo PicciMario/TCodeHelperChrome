@@ -18,7 +18,7 @@ import AboutComponent from './components/AboutComponent';
 const theme = createTheme({
   typography: {
     fontSize: 11,
-    fontFamily: "Segoe UI"
+    fontFamily: "Segoe UI",
   }
 });
 
