@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
-  "name": "Prova estensione Chrome",
-  "description": "Ottimismo",
+  "name": "TCode Helper",
+  "description": "Ricerca TCode sempre a portata di mano.",
   "version": "0.1.0",
   "icons": {
     "16": "images/icon-16.png",
@@ -11,10 +11,9 @@
   },
   "action": {
     "default_popup": "popup.html",
-    "default_title": "Open"
+    "default_title": "TCode Helper"
   },
   "permissions":[
-    "scripting",
     "storage"
   ],
   "host_permissions": ["https://github.com/*"]

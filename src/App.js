@@ -24,7 +24,7 @@ const theme = createTheme({
 
 function App() {
 
-  const [selectedTab, setSelectedTab] = React.useState(1);
+  const [selectedTab, setSelectedTab] = React.useState(0);
 
   const activeTab = () => {
     switch (selectedTab) {
