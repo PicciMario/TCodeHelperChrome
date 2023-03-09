@@ -40,15 +40,12 @@ export default function TCodeComponent() {
 
 	// Recupera stringa di ricerca e cache da local storage
 	React.useEffect(() => {
-		console.log('Will mount');
 		chrome.storage.local.get(["actualSearch", "actualData"], (result) => {
-			console.log("Recuperato result ", result)
+			console.log("Loaded data from Chrome Storage", result)
 			setSearch(result.actualSearch || '');
 			setData(result.actualData || []);
 		});
-		return () => {
-			console.log('Will unmount');
-		};
+		return () => {};
 	}, []);
 
 	/**
@@ -56,7 +53,7 @@ export default function TCodeComponent() {
 	 */
 	const retrieveData = () => {
 
-		let url = 'https://github.com/PicciMario/TCodeHelper/raw/master/tcodes.json';
+		let url = 'https://github.com/PicciMario/TCodeHelperChrome/raw/master/tcodes.json';
 
 		console.log(`Retrieving data from ${url}...`)
 		setIsLoading(true);
