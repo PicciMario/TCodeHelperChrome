@@ -55,6 +55,16 @@
         "keywords": "caratteristica classificazione classe"
     },
     {
+        "code": "CMOD",
+        "descr": "Gestisci progetti enhancement.",
+        "keywords": "enhancement exit"
+    },    
+    {
+        "code": "SMOD",
+        "descr": "Visualizza enhancement.",
+        "keywords": "enhancement exit"
+    },  
+    {
         "code": "CT04",
         "descr": "Visualizza caratteristica.",
         "keywords": "caratteristica classificazione"
