@@ -10,6 +10,21 @@
         "keywords": "gestione manuale servizi gateway odata"
     },
     {
+        "code": "/IWBEP/REG_MODEL",
+        "descr": "Gestione modelli OData.",
+        "keywords": "modelli servizi gateway odata"
+    },
+    {
+        "code": "/IWBEP/REG_VOCAN",
+        "descr": "Associazione vocabolario metadati OData.",
+        "keywords": "vocabolario metadati gateway odata"
+    },
+    {
+        "code": "/IWFND/REG_SERVICE",
+        "descr": "Gestione servizi gateway.",
+        "keywords": "gestione servizi gateway odata"
+    },
+    {
         "code": "/IWFND/MAINT_SERVICE",
         "descr": "Attivazione servizi gateway.",
         "keywords": "attivazione servizi gateway odata"
