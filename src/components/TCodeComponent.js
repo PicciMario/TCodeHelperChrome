@@ -135,8 +135,11 @@ export default function TCodeComponent() {
 	 */
 	const checkKeywords = () => {
 
+		// Se ricerca '*' mostra tutti i TCode esistenti.
 		if (search == '*'){
-			return data.map(item => ({...item, value:0}))
+			return data
+				.map(item => ({...item, value:0}))
+				.sort((a,b) => a.code.localeCompare(b.code))
 		}
 
 		let searchKeys = (search || '').split(' ').filter(word => word.length >= 2);
@@ -150,7 +153,11 @@ export default function TCodeComponent() {
 
 				tcodeToCheck.keywords.forEach(keyToCheck => {
 					searchKeys.forEach(searchKey => {
+						// Se le chiavi sono sovrapposte anche solo parzialmente, 1 punto
 						if (keyToCheck.includes(searchKey)) value++;
+						// Se le chiavi corrispondono esattamente, 1 ulteriore punto
+						// (favorisce corrispondenze esatte nel ranking)
+						if (keyToCheck == searchKey) value++;
 					})
 				});
 
