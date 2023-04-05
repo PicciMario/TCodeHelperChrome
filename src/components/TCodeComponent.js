@@ -135,6 +135,10 @@ export default function TCodeComponent() {
 	 */
 	const checkKeywords = () => {
 
+		if (search == '*'){
+			return data.map(item => ({...item, value:0}))
+		}
+
 		let searchKeys = (search || '').split(' ').filter(word => word.length >= 2);
 
 		let tcodesWeights = data
@@ -244,7 +248,7 @@ export default function TCodeComponent() {
 									<IconButton
 										component="label"
 										onClick={(e) => { copyCodeToClipboard(item.code); e.stopPropagation() }}
-										style={{ position: 'absolute', left: 0, top: '6px' }}
+										style={{ position: 'absolute', left: 0, top: '-1px' }}
 									>
 										<ContentCopyIcon fontSize='small' />
 									</IconButton>
