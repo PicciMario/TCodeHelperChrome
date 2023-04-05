@@ -143,6 +143,7 @@ export default function TCodeComponent() {
 		}
 
 		let searchKeys = (search || '').split(' ').filter(word => word.length >= 2);
+		searchKeys = searchKeys.map(key => key.toUpperCase())
 
 		let tcodesWeights = data
 			.map(tcodeToCheck => {
@@ -151,7 +152,9 @@ export default function TCodeComponent() {
 
 				if (searchKeys.length == 0) return { ...tcodeToCheck, value };
 
-				tcodeToCheck.keywords.forEach(keyToCheck => {
+				[...tcodeToCheck.keywords, tcodeToCheck.code]
+				.map(key => key.toUpperCase())
+				.forEach(keyToCheck => {
 					searchKeys.forEach(searchKey => {
 						// Se le chiavi sono sovrapposte anche solo parzialmente, 1 punto
 						if (keyToCheck.includes(searchKey)) value++;
