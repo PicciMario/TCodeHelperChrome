@@ -31,6 +31,8 @@ export const AccordionSummary = styled((props) => (
 	},
 	'& .MuiAccordionSummary-content': {
 		marginLeft: theme.spacing(0),
+		marginTop: '6px',
+		marginBottom: '6px'
 	},
 	minHeight: '10px'
 }));
