@@ -32,6 +32,7 @@ export default function TCodeComponent() {
 
 	// Array TCodes
 	const [data, setData] = React.useState([]);
+	const [lastRetrieve, setLastRetrieve] = React.useState('');
 
 	// Stati per snackbar retrieve TCodes (conferma o errore)
 	const [retrieveNotifOpen, setRetrieveNotifOpen] = React.useState(false);
@@ -43,10 +44,11 @@ export default function TCodeComponent() {
 
 	// Recupera stringa di ricerca e cache da local storage
 	React.useEffect(() => {
-		chrome.storage.local.get(["actualSearch", "actualData"], (result) => {
+		chrome.storage.local.get(["actualSearch", "actualData", "lastRetrieve"], (result) => {
 			console.log("Loaded data from Chrome Storage", result)
 			setSearch(result.actualSearch || '');
 			setData(result.actualData || []);
+			setLastRetrieve(result.lastRetrieve || '')
 		});
 		return () => { };
 	}, []);
@@ -78,7 +80,15 @@ export default function TCodeComponent() {
 				console.log("Data retrieved.", formattedData);
 				setData(formattedData);
 				setRetrieveNotifOpen(true);
-				chrome.storage.local.set({ actualData: formattedData }).then(() => { console.log("Saved local cache.") });
+
+				let d = new Date();
+				let lastRetrieveDate = d.toLocaleString();
+				setLastRetrieve(lastRetrieveDate);
+
+				chrome.storage.local.set({ 
+					actualData: formattedData,
+					lastRetrieve: lastRetrieveDate
+				}).then(() => { console.log("Saved local cache.") });
 
 			})
 			.catch(err => {
@@ -198,7 +208,7 @@ export default function TCodeComponent() {
 						onChange={handleSearchChange}
 						sx={{ flexGrow: 1 }}
 					/>
-					<Tooltip title="Download TCODES">
+					<Tooltip title={'Download TCODES (last retrieved on ' + lastRetrieve + ')'}>
 						<IconButton component="label" onClick={retrieveData} sx={{ ml: 1 }}>
 							{isLoading ? <CircularProgress size="1rem" /> : <SyncIcon />}
 						</IconButton>
