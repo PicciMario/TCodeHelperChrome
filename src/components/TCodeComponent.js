@@ -15,6 +15,7 @@ import {
 } from '@mui/material';
 
 import SyncIcon from '@mui/icons-material/Sync';
+import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 
 import { Accordion, AccordionDetails, AccordionSummary } from './CustomComponents';
 
@@ -32,11 +33,13 @@ export default function TCodeComponent() {
 	// Array TCodes
 	const [data, setData] = React.useState([]);
 
-	// Apertura notifica
-	const [notifOpen, setNotifOpen] = React.useState(false);
+	// Stati per snackbar retrieve TCodes (conferma o errore)
+	const [retrieveNotifOpen, setRetrieveNotifOpen] = React.useState(false);
+	const [retrieveError, setRetrieveError] = React.useState(null);
 
-	// Errore (per notifica)
-	const [error, setError] = React.useState(null);
+	// Stati per snackbar copia TCode in appunti
+	const [copyNotifOpen, setCopyNotifOpen] = React.useState(false);
+	const [copyValue, setCopyValue] = React.useState(null);
 
 	// Recupera stringa di ricerca e cache da local storage
 	React.useEffect(() => {
@@ -45,7 +48,7 @@ export default function TCodeComponent() {
 			setSearch(result.actualSearch || '');
 			setData(result.actualData || []);
 		});
-		return () => {};
+		return () => { };
 	}, []);
 
 	/**
@@ -74,14 +77,14 @@ export default function TCodeComponent() {
 
 				console.log("Data retrieved.", formattedData);
 				setData(formattedData);
-				setNotifOpen(true);
+				setRetrieveNotifOpen(true);
 				chrome.storage.local.set({ actualData: formattedData }).then(() => { console.log("Saved local cache.") });
 
 			})
 			.catch(err => {
 				setIsLoading(false);
-				setError(err);
-				setNotifOpen(true);
+				setRetrieveError(err);
+				setRetrieveNotifOpen(true);
 			});
 	}
 
@@ -106,8 +109,18 @@ export default function TCodeComponent() {
 		setSearch(e.target.value)
 	}
 
-	const closeSnackbar = () => {
-		setNotifOpen(false);
+	/**
+	 * Chiude notifica refresh TCodes.
+	 */
+	const closeRetrieveNotif = () => {
+		setRetrieveNotifOpen(false);
+	}
+
+	/**
+	 * Chiude notifica avvenuta copia negli appunti del TCode.
+	 */
+	const closeCopyNotif = () => {
+		setCopyNotifOpen(false);
 	}
 
 	/**
@@ -147,6 +160,16 @@ export default function TCodeComponent() {
 
 	}
 
+	/**
+	 * Copia codice in appunti.
+	 * @param {*} code 
+	 */
+	const copyCodeToClipboard = (code) => {
+		navigator.clipboard.writeText('/n' + code);
+		setCopyValue('/n' + code)
+		setCopyNotifOpen(true)
+	}
+
 	return (
 
 		<React.Fragment>
@@ -172,38 +195,78 @@ export default function TCodeComponent() {
 			<Box sx={{ pb: "56px", pt: "60px" }}>
 
 				<Snackbar
-					open={notifOpen}
-					autoHideDuration={error ? null : 4000}
-					onClose={closeSnackbar}
+					open={retrieveNotifOpen}
+					autoHideDuration={retrieveError ? null : 4000}
+					onClose={closeRetrieveNotif}
 					action={
-						<Button color="inherit" size="small" onClick={closeSnackbar}>
+						<Button color="inherit" size="small" onClick={closeRetrieveNotif}>
 							Clear
 						</Button>
 					}
 					sx={{ pb: "56px" }}
 				>
 					<Alert
-						onClose={closeSnackbar}
-						severity={error ? "error" : "success"}
+						onClose={closeRetrieveNotif}
+						severity={retrieveError ? "error" : "success"}
 						sx={{ width: '100%' }}
 					>
-						{error ? `${error}` : `Retrieved ${data.length} TCODES.`}
+						{retrieveError ? `${retrieveError}` : `Retrieved ${data.length} TCODES.`}
+					</Alert>
+				</Snackbar>
+
+				<Snackbar
+					open={copyNotifOpen}
+					autoHideDuration={2000}
+					onClose={closeCopyNotif}
+					action={
+						<Button color="inherit" size="small" onClick={closeCopyNotif}>
+							Clear
+						</Button>
+					}
+					sx={{ pb: "56px" }}
+				>
+					<Alert
+						onClose={closeCopyNotif}
+						severity="success"
+						sx={{ width: '100%' }}
+					>
+						{'Copiato negli appunti: ' + copyValue}
 					</Alert>
 				</Snackbar>
 
 				{
 					checkKeywords()
 						.map(item => (
+
 							<Accordion expanded={expanded === item.code} onChange={handleChange(item.code)} key={item.code}>
+								
 								<AccordionSummary>
-									<Typography sx={{ fontWeight: 'bold' }}>{item.code}</Typography>
-									<Typography sx={{ ml: 1 }}>{item.descr}</Typography>
+									<IconButton
+										component="label"
+										onClick={(e) => { copyCodeToClipboard(item.code); e.stopPropagation() }}
+										style={{ position: 'absolute', left: 0, top: '6px' }}
+									>
+										<ContentCopyIcon fontSize='small' />
+									</IconButton>
+									<Typography sx={{ fontWeight: 'bold', ml: 1.5 }}>
+										{item.code}
+									</Typography>
+									<Typography sx={{ ml: 1, mr: 1 }}>
+										{item.descr}
+									</Typography>
 								</AccordionSummary>
+								
 								<AccordionDetails>
-									<Typography>{item.descr}</Typography>
-									<Typography sx={{ fontStyle: 'italic' }}>Keywords: {item.keywords.join(" ")} ({item.value})</Typography>
+									<Typography>
+										{item.descr}
+									</Typography>
+									<Typography sx={{ fontStyle: 'italic' }}>
+										Keywords: {item.keywords.join(" ")} ({item.value})
+									</Typography>
 								</AccordionDetails>
+
 							</Accordion>
+
 						))
 				}
 
