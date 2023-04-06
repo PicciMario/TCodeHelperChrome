@@ -440,6 +440,11 @@
         "keywords": "richieste offerta RdO"
     },
     {
+        "code": "ME47",
+        "descr": "Modifica quotazioni richieste di offerta (RdO).",
+        "keywords": "quotazioni richieste offerta RdO"
+    },
+    {
         "code": "ME52N",
         "descr": "Modifica richieste di acquisto (RdA)",
         "keywords": "richieste acquisto RdA"
