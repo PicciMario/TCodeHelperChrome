@@ -19,7 +19,7 @@ export default function AboutComponent() {
 	return (
 
 		<>
-			<Box sx={{ flexGrow: 1, m: 1, mt: 3 }}>
+			<Box sx={{ flexGrow: 1, m: 1, mt: 3, ml:3, mr:3 }}>
 
 				<Grid container spacing={2} >
 
@@ -58,7 +58,7 @@ export default function AboutComponent() {
 				</Typography>
 
 				<Typography sx={{ textAlign: "left", mb: 1 }}>
-					I TCodes sono letti direttamente dal file
+					I TCodes sono letti direttamente dal file 
 					<Link
 						sx={{ ml: 0.5, mr: 0.5 }}
 						onClick={() => {
@@ -103,17 +103,6 @@ export default function AboutComponent() {
 						Il Mario
 					</Link>
 				</Typography>
-
-				<Button
-					variant="outlined"
-					sx={{ mt: 5 }}
-					onClick={() => {
-						chrome.tabs.create({
-							url: "https://github.com/PicciMario/TCodeHelperChrome"
-						});
-					}}>
-					GitHub Repository
-				</Button>
 
 			</Box>
 
