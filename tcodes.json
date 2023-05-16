@@ -95,6 +95,11 @@
         "keywords": "gestione associazione utente cloud principal propagation"
     },
     {
+        "code": "FB60",
+        "descr": "Inserimento fatture passive.",
+        "keywords": "fattura inserimento passiva"
+    },
+    {
         "code": "IDOC",
         "descr": "Analisi struttura e contenuto IDOC",
         "keywords": "IDOC analisi struttura contenuto"
@@ -131,8 +136,13 @@
     },
     {
         "code": "OAWD",
-        "descr": "Caricamento documenti.",
+        "descr": "Caricamento file su documentale.",
         "keywords": "caricamento content repository alink archivelink"
+    },
+    {
+        "code": "OAAD",
+        "descr": "Recupero file da documentale.",
+        "keywords": "lettura recupero content repository alink archivelink"
     },
     {
         "code": "PFCG",
@@ -148,6 +158,11 @@
         "code": "SBWP",
         "descr": "SAP Business Workplace inbox.",
         "keywords": "SAP Business Workplace inbox"
+    },
+    {
+        "code": "SCC4",
+        "descr": "Visualizza/modifica mandanti.",
+        "keywords": "configurazione mandante client"
     },
     {
         "code": "SCOT",
@@ -178,6 +193,11 @@
         "code": "SE16N",
         "descr": "Visualizzazione contenuto tabelle.",
         "keywords": "visualizza contenuto tabella"
+    },
+    {
+        "code": "SE18",
+        "descr": "BADI Builder.",
+        "keywords": "badi"
     },
     {
         "code": "SE24",

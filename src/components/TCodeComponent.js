@@ -82,7 +82,7 @@ export default function TCodeComponent() {
 				setRetrieveNotifOpen(true);
 
 				let d = new Date();
-				let lastRetrieveDate = d.toLocaleString();
+				let lastRetrieveDate = d.toString();
 				setLastRetrieve(lastRetrieveDate);
 
 				chrome.storage.local.set({ 
@@ -194,6 +194,17 @@ export default function TCodeComponent() {
 		setCopyNotifOpen(true)
 	}
 
+	/**
+	 * Formatta data salvata in ISO in stringa localizzata.
+	 * @param {*} dateISO 
+	 * @returns 
+	 */
+	const formatDate = (dateISO) => {
+		let dateRetr = Date.parse(dateISO);
+		let dateObj = new Date(dateRetr)
+		return dateObj.toLocaleString();
+	}
+
 	return (
 
 		<React.Fragment>
@@ -208,7 +219,7 @@ export default function TCodeComponent() {
 						onChange={handleSearchChange}
 						sx={{ flexGrow: 1 }}
 					/>
-					<Tooltip title={'Download TCODES (last retrieved on ' + lastRetrieve + ')'}>
+					<Tooltip title={'Download TCODES (last retrieved on ' + formatDate(lastRetrieve) + ')'}>
 						<IconButton component="label" onClick={retrieveData} sx={{ ml: 1 }}>
 							{isLoading ? <CircularProgress size="1rem" /> : <SyncIcon />}
 						</IconButton>

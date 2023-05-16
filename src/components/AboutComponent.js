@@ -19,7 +19,7 @@ export default function AboutComponent() {
 	return (
 
 		<>
-			<Box sx={{ flexGrow: 1, m: 1, mt: 3, ml:3, mr:3 }}>
+			<Box sx={{ flexGrow: 1, m: 1, mt: 3, ml: 3, mr: 3 }}>
 
 				<Grid container spacing={2} >
 
@@ -52,13 +52,13 @@ export default function AboutComponent() {
 				</Grid>
 
 
-				<Typography sx={{ textAlign: "left", mb: 1, mt:3 }}>
+				<Typography sx={{ textAlign: "left", mb: 1, mt: 3 }}>
 					Questa è la mia piccola collezione di TCodes, costruita un pò a memoria e un pò raccogliendo appunti e foglietti sparsi per la scrivania.
 					E' un work in progress, quindi ne verranno aggiunti altri man mano che mi capitano tra le mani.
 				</Typography>
 
 				<Typography sx={{ textAlign: "left", mb: 1 }}>
-					I TCodes sono letti direttamente dal file 
+					I TCodes sono letti direttamente dal file
 					<Link
 						sx={{ ml: 0.5, mr: 0.5 }}
 						onClick={() => {
