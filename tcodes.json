@@ -335,6 +335,11 @@
         "keywords": "smartforms testi"
     },
     {
+        "code": "SMICO",
+        "descr": "Amministrazione servizi rete.",
+        "keywords": "server url ip indirizzo servizi rete network"
+    },
+    {
         "code": "SO10",
         "descr": "Gestione testi standard.",
         "keywords": "testi standard"
