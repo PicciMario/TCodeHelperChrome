@@ -260,6 +260,11 @@
         "keywords": "transazioni nomi tecnici parametri"
     },
     {
+        "code": "SE41",
+        "descr": "Menu painter (modifica toolbar/menu/ecc)",
+        "keywords": "menu painter toolbar status"
+    },
+    {
         "code": "SE61",
         "descr": "Gestione documenti (testi estesi).",
         "keywords": "testi estesi documenti"
