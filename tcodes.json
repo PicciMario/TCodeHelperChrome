@@ -250,6 +250,11 @@
         "keywords": "smartforms form stampe"
     },
     {
+        "code": "SP01",
+        "descr": "Visualizza spool stampa.",
+        "keywords": "spool stampa"
+    },
+    {
         "code": "SREPO",
         "descr": "Confronta oggetti tra sistemi.",
         "keywords": "confronto diff sistemi repository"
