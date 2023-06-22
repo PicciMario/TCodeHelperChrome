@@ -310,6 +310,11 @@
         "keywords": "sessione utente connessioni login"
     },
     {
+        "code": "SM21",
+        "descr": "Visualizza log sistema.",
+        "keywords": "log sistema system log"
+    },
+    {
         "code": "SM30",
         "descr": "Apertura Maintenance View.",
         "keywords": "maintenance view"
