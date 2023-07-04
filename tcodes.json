@@ -440,6 +440,11 @@
         "keywords": "log workitem work item task workflow"
     },
     {
+        "code": "SWI2_ADM1",
+        "descr": "Report workitem senza agente.",
+        "keywords": "workitem agente"
+    },
+    {
         "code": "SWIA",
         "descr": "Log Workflow.",
         "keywords": "workflow log task"
