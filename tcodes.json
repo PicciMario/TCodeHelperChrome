@@ -85,6 +85,11 @@
         "keywords": "caratteristica classificazione"
     },
     {
+        "code": "DB02",
+        "descr": "Diagnostica database.",
+        "keywords": "tool diagnostica database spazio disco performance thread cpu sql sistema"
+    },
+    {
         "code": "EDOC_COCKPIT",
         "descr": "Coockpit e-document.",
         "keywords": "coockpit e-document edocument"
