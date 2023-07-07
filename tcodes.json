@@ -171,8 +171,8 @@
     },
     {
         "code": "SCOT",
-        "descr": "configurazione (Settings->Inbound Processing)",
-        "keywords": "configurazione (Settings->Inbound Processing)"
+        "descr": "Configurazione email",
+        "keywords": "configurazione email business communication"
     },
     {
         "code": "SE03",
@@ -368,6 +368,11 @@
         "code": "SOIN",
         "descr": "Email in ingresso su server SMTP.",
         "keywords": "posta elettronica email SMTP"
+    },
+    {
+        "code": "SOST",
+        "descr": "Coda email in uscita.",
+        "keywords": "posta elettronica email"
     },
     {
         "code": "SPAD",
