@@ -160,6 +160,11 @@
         "keywords": "creazione modifica task"
     },
     {
+        "code": "RSSCD100",
+        "descr": "Report change documents.",
+        "keywords": "change documents log modifiche"
+    },
+    {
         "code": "SBWP",
         "descr": "SAP Business Workplace inbox.",
         "keywords": "SAP Business Workplace inbox"
@@ -169,6 +174,11 @@
         "descr": "Visualizza/modifica mandanti.",
         "keywords": "configurazione mandante client"
     },
+    {
+        "code": "SCDO",
+        "descr": "Visualizza/modifica change document.",
+        "keywords": "change document log modifiche"
+    },    
     {
         "code": "SCOT",
         "descr": "Configurazione email",
