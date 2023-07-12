@@ -142,12 +142,12 @@
     {
         "code": "OAWD",
         "descr": "Caricamento file su documentale.",
-        "keywords": "caricamento content repository alink archivelink"
+        "keywords": "caricamento file content repository alink archivelink"
     },
     {
         "code": "OAAD",
         "descr": "Recupero file da documentale.",
-        "keywords": "lettura recupero content repository alink archivelink"
+        "keywords": "lettura file recupero content repository alink archivelink"
     },
     {
         "code": "PFCG",
