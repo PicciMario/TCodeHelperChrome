@@ -215,6 +215,11 @@
         "keywords": "badi"
     },
     {
+        "code": "SE20",
+        "descr": "Modifica/visualizza enhancement.",
+        "keywords": "enhancement badi"
+    },
+    {
         "code": "SE24",
         "descr": "Modifica classi ABAP.",
         "keywords": "creazione modifica classi ABAP"
