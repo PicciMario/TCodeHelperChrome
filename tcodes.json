@@ -330,6 +330,11 @@
         "keywords": "sessione utente connessioni login"
     },
     {
+        "code": "SM20",
+        "descr": "Visualizza log attività utenti.",
+        "keywords": "log sistema system log user audit security"
+    },    
+    {
         "code": "SM21",
         "descr": "Visualizza log sistema.",
         "keywords": "log sistema system log"
@@ -468,6 +473,11 @@
         "code": "SWIA",
         "descr": "Log Workflow.",
         "keywords": "workflow log task"
+    },
+    {
+        "code": "SWPC",
+        "descr": "Workflow in errore dopo crash.",
+        "keywords": "workflow log task error"
     },
     {
         "code": "SWUE",
