@@ -96,7 +96,7 @@
     },
     {
         "code": "EXTID_DN",
-        "descr": "Associazione user cloud e utente SAP.",
+        "descr": "Associazione utente cloud e utente SAP.",
         "keywords": "gestione associazione utente cloud principal propagation"
     },
     {
@@ -332,7 +332,7 @@
     {
         "code": "SM20",
         "descr": "Visualizza log attività utenti.",
-        "keywords": "log sistema system log user audit security"
+        "keywords": "log sistema system log utenti audit security"
     },    
     {
         "code": "SM21",
