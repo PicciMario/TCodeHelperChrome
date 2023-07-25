@@ -90,6 +90,11 @@
         "keywords": "tool diagnostica database spazio disco performance thread cpu sql sistema"
     },
     {
+        "code": "DBACOCKPIT",
+        "descr": "Amministrazione database.",
+        "keywords": "tool diagnostica database sql sistema"
+    },
+    {
         "code": "EDOC_COCKPIT",
         "descr": "Coockpit e-document.",
         "keywords": "coockpit e-document edocument"
