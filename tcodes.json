@@ -505,6 +505,11 @@
         "keywords": "messaggi stampa coda"
     },
     {
+        "code": "WE30",
+        "descr": "Struttura IDOC e segmenti.",
+        "keywords": "idoc struttura segmenti"
+    },
+    {
         "code": "WE19",
         "descr": "Modifica/reinvio IDOC.",
         "keywords": "test IDOC invia crea copia"
