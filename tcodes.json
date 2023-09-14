@@ -30,6 +30,11 @@
         "keywords": "attivazione servizi gateway odata"
     },
     {
+        "code": "/IWFND/V4_ADMIN",
+        "descr": "Pubblicazione service binding.",
+        "keywords": "odata service binding pubblicazione attivazione"
+    },
+    {
         "code": "/OPT/VIM",
         "descr": "Menu principale VIM.",
         "keywords": "menu VIM"
