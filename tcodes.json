@@ -547,27 +547,27 @@
     {
         "code": "ME42",
         "descr": "Modifica richieste di offerta (RdO).",
-        "keywords": "richieste offerta RdO"
+        "keywords": "richieste offerta RdO request quotation"
     },
     {
         "code": "ME47",
         "descr": "Modifica quotazioni richieste di offerta (RdO).",
-        "keywords": "quotazioni richieste offerta RdO"
+        "keywords": "quotazioni richieste offerta RdO request quotation"
     },
     {
         "code": "ME52N",
         "descr": "Modifica richieste di acquisto (RdA)",
-        "keywords": "richieste acquisto RdA"
+        "keywords": "richieste acquisto RdA purchase requisition"
     },
     {
         "code": "ME91F",
         "descr": "Crea solleciti OdA.",
-        "keywords": "solleciti OdA purchase order ordini acquisto"
+        "keywords": "solleciti OdA ordini acquisto purchase order"
     },
     {
         "code": "ME9F",
         "descr": "Stampa messaggi su OdA.",
-        "keywords": "stampa messaggi ordini OdA"
+        "keywords": "stampa messaggi ordini OdA purchase order"
     },
     {
         "code": "MM02",
@@ -582,11 +582,16 @@
     {
         "code": "MIGO",
         "descr": "Registra entrata merce.",
-        "keywords": "bolla entrata merci registrazione"
+        "keywords": "bolla entrata merci registrazione entry sheet"
     },
     {
         "code": "MIRO",
         "descr": "Registra fattura.",
-        "keywords": "fattura registrazione"
+        "keywords": "fattura registrazione invoice"
+    },
+    {
+        "code": "IW32",
+        "descr": "Modifica Ordine Manutenzione.",
+        "keywords": "ordine manutenzione maintenance order"
     }
 ]
