@@ -410,6 +410,11 @@
         "keywords": "stampanti"
     },
     {
+        "code": "SPRO",
+        "descr": "Customizing.",
+        "keywords": "customizing project"
+    },    
+    {
         "code": "ST05",
         "descr": "Trace SQL/HTTP/ecc.",
         "keywords": "trace SQL HTTP log"
@@ -483,6 +488,11 @@
         "code": "SWIA",
         "descr": "Log Workflow.",
         "keywords": "workflow log task"
+    },
+    {
+        "code": "SWO1",
+        "descr": "Business Objects Builder.",
+        "keywords": "business objects list builder"
     },
     {
         "code": "SWPC",
