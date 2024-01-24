@@ -475,6 +475,11 @@
         "keywords": "coda eventi"
     },
     {
+        "code": "SWFVISU",
+        "descr": "Configurazione MyInbox per task.",
+        "keywords": "myinbox inbox task"
+    },
+    {
         "code": "SWI1",
         "descr": "Log workitem.",
         "keywords": "log workitem work item task workflow"
