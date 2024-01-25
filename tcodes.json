@@ -476,7 +476,12 @@
     },
     {
         "code": "SWFVISU",
-        "descr": "Configurazione MyInbox per task.",
+        "descr": "Configurazione My Inbox per task.",
+        "keywords": "myinbox inbox task"
+    },
+    {
+        "code": "SWFVMD1",
+        "descr": "Configurazione metadati My Inbox per task.",
         "keywords": "myinbox inbox task"
     },
     {
