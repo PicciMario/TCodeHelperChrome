@@ -130,6 +130,11 @@
         "keywords": "contratto acquisto"
     },
     {
+        "code": "ME51",
+        "descr": "Mostra lista documenti materiale.",
+        "keywords": "documento materiale"
+    },
+    {
         "code": "NACE",
         "descr": "Gestione messaggi di stampa.",
         "keywords": "messaggi stampa"
