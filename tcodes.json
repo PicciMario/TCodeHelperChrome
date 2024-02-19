@@ -115,6 +115,21 @@
         "keywords": "fattura inserimento passiva"
     },
     {
+        "code": "GS01",
+        "descr": "Creazione Set.",
+        "keywords": "set creazione"
+    },
+    {
+        "code": "GS02",
+        "descr": "Modifica Set.",
+        "keywords": "set modifica"
+    },
+    {
+        "code": "GS03",
+        "descr": "Elimina Set.",
+        "keywords": "set elimina"
+    },
+    {
         "code": "IDOC",
         "descr": "Analisi struttura e contenuto IDOC",
         "keywords": "IDOC analisi struttura contenuto"
