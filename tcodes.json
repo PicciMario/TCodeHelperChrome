@@ -50,6 +50,11 @@
         "keywords": "fiori launchpad designer"
     },
     {
+        "code": "/UI2/FLPCM_CUST",
+        "descr": "Apre Launchpad Content Manager.",
+        "keywords": "fiori launchpad content manager check services"
+    },
+    {
         "code": "AL11",
         "descr": "Cartelle accessibili da SAP.",
         "keywords": "cartelle filesystem file share"
