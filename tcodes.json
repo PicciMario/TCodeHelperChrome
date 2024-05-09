@@ -460,6 +460,11 @@
         "keywords": "gestione utenti ruoi permessi"
     },
     {
+        "code": "SU21",
+        "descr": "Gestione oggetti e classi autorizzativi.",
+        "keywords": "gestione oggetti autorizzativi classi permessi"
+    },
+    {
         "code": "SU53",
         "descr": "Visualizzazione log errori autorizzativi",
         "keywords": "log errori autorizzazione permessi"
