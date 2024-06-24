@@ -590,6 +590,11 @@
         "keywords": "message type IDOC"
     },
     {
+        "code": "WE82",
+        "descr": "Associazione Basic Type - Message Type.",
+        "keywords": "message type basic IDOC"
+    },
+    {
         "code": "ME22N",
         "descr": "Modifica ordini di acquisto (OdA).",
         "keywords": "ordini acquisto OdA purchase order"
