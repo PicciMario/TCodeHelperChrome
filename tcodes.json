@@ -561,8 +561,13 @@
     },
     {
         "code": "WE30",
-        "descr": "IDOC Types.",
-        "keywords": "IDOC struttura segmenti"
+        "descr": "IDOC Basic Types.",
+        "keywords": "basic type IDOC"
+    },
+    {
+        "code": "WE31",
+        "descr": "IDOC Segments.",
+        "keywords": "segments IDOC"
     },
     {
         "code": "WE19",
