@@ -65,6 +65,11 @@
         "keywords": "bapi explorer lista elenco"
     },
     {
+        "code": "BDBG",
+        "descr": "Crea IDOC per BAPI",
+        "keywords": "bapi idoc interface"
+    },
+    {
         "code": "CG3Y",
         "descr": "Download file dalla macchina SAP.",
         "keywords": "scarica download file"
