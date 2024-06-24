@@ -605,6 +605,11 @@
         "keywords": "inbound process code IDOC"
     },
     {
+        "code": "WE57",
+        "descr": "Mappatura tra IDOC e function module.",
+        "keywords": "IDOC message type basic function module"
+    },
+    {
         "code": "WE60",
         "descr": "Documentazione struttura IDOC.",
         "keywords": "documentazione struttura IDOC"
