@@ -65,6 +65,11 @@
         "keywords": "bapi explorer lista elenco"
     },
     {
+        "code": "BD54",
+        "descr": "Gestione Logical Systems",
+        "keywords": "idoc logical system interface"
+    },
+    {
         "code": "BDBG",
         "descr": "Crea IDOC per BAPI",
         "keywords": "bapi idoc interface"
