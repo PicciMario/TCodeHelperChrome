@@ -595,6 +595,16 @@
         "keywords": "segments IDOC"
     },
     {
+        "code": "WE41",
+        "descr": "IDOC Outbound Process Code.",
+        "keywords": "outbound process code IDOC"
+    },
+    {
+        "code": "WE42",
+        "descr": "IDOC Inbound Process Code.",
+        "keywords": "inbound process code IDOC"
+    },
+    {
         "code": "WE60",
         "descr": "Documentazione struttura IDOC.",
         "keywords": "documentazione struttura IDOC"
