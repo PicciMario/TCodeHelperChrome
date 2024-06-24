@@ -565,6 +565,11 @@
         "keywords": "messaggi stampa coda"
     },
     {
+        "code": "WE21",
+        "descr": "Gestione porte.",
+        "keywords": "idoc porta"
+    },
+    {
         "code": "WE30",
         "descr": "IDOC Basic Types.",
         "keywords": "basic type IDOC"
