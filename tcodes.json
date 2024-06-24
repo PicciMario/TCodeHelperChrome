@@ -565,6 +565,16 @@
         "keywords": "messaggi stampa coda"
     },
     {
+        "code": "WE19",
+        "descr": "Modifica/reinvio IDOC.",
+        "keywords": "test IDOC invia crea copia"
+    },
+    {
+        "code": "WE20",
+        "descr": "Gestione Partner Profile.",
+        "keywords": "IDOC partner profile"
+    },
+    {
         "code": "WE21",
         "descr": "Gestione porte.",
         "keywords": "idoc porta"
@@ -578,11 +588,6 @@
         "code": "WE31",
         "descr": "IDOC Segments.",
         "keywords": "segments IDOC"
-    },
-    {
-        "code": "WE19",
-        "descr": "Modifica/reinvio IDOC.",
-        "keywords": "test IDOC invia crea copia"
     },
     {
         "code": "WE60",
