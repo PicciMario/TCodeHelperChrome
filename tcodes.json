@@ -561,8 +561,8 @@
     },
     {
         "code": "WE30",
-        "descr": "Struttura IDOC e segmenti.",
-        "keywords": "idoc struttura segmenti"
+        "descr": "IDOC Types.",
+        "keywords": "IDOC struttura segmenti"
     },
     {
         "code": "WE19",
@@ -573,6 +573,11 @@
         "code": "WE60",
         "descr": "Documentazione struttura IDOC.",
         "keywords": "documentazione struttura IDOC"
+    },
+    {
+        "code": "WE81",
+        "descr": "IDOC Message Types.",
+        "keywords": "message type IDOC"
     },
     {
         "code": "ME22N",
