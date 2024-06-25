@@ -155,6 +155,11 @@
         "keywords": "equipment"
     },
     {
+        "code": "LSMW",
+        "descr": "Legacy System Migration Workbench.",
+        "keywords": "legacy system migration"
+    },
+    {
         "code": "ME32K",
         "descr": "Modifica contratti acquisto.",
         "keywords": "contratto acquisto"
