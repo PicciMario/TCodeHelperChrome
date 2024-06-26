@@ -70,6 +70,11 @@
         "keywords": "idoc logical system interface"
     },
     {
+        "code": "BD87",
+        "descr": "Riprocessa IDOC in errore.",
+        "keywords": "test IDOC error"
+    },
+    {
         "code": "BDBG",
         "descr": "Crea IDOC per BAPI",
         "keywords": "bapi idoc interface"
@@ -576,7 +581,7 @@
     },
     {
         "code": "WE19",
-        "descr": "Modifica/reinvio IDOC.",
+        "descr": "IDOC Test tools.",
         "keywords": "test IDOC invia crea copia"
     },
     {
