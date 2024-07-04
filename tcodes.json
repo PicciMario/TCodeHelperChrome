@@ -492,7 +492,7 @@
     {
         "code": "SU53",
         "descr": "Visualizzazione log errori autorizzativi",
-        "keywords": "log errori autorizzazione permessi"
+        "keywords": "log errori autorizzazione permessi authorization"
     },
     {
         "code": "SUIM",
