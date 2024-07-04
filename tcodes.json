@@ -480,9 +480,14 @@
         "keywords": "gestione utenti ruoi permessi"
     },
     {
+        "code": "SU20",
+        "descr": "Gestione campi autorizzativi.",
+        "keywords": "gestione campi autorizzativi authorization field"
+    },
+    {
         "code": "SU21",
         "descr": "Gestione oggetti e classi autorizzativi.",
-        "keywords": "gestione oggetti autorizzativi classi permessi"
+        "keywords": "gestione oggetti autorizzativi classi permessi authorization class object"
     },
     {
         "code": "SU53",
