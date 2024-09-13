@@ -370,6 +370,11 @@
         "keywords": "log applicazione abap"
     },
     {
+        "code": "SLG2",
+        "descr": "Cancella log applicativi.",
+        "keywords": "log applicazione abap"
+    },
+    {
         "code": "SNRO",
         "descr": "Range numeratori.",
         "keywords": "number range numeratori"
