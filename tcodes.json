@@ -240,6 +240,11 @@
         "keywords": "configurazione email business communication"
     },
     {
+        "code": "SCU3",
+        "descr": "Analisi Change Log",
+        "keywords": "change log modifica"
+    },
+    {
         "code": "SE03",
         "descr": "Transport Request Tools.",
         "keywords": "cr transport request tools"
