@@ -655,6 +655,16 @@
         "keywords": "ordini acquisto rilascio bloccati OdA purchase order"
     },
     {
+        "code": "ME35",
+        "descr": "Rilascio contratti di acquisto bloccati.",
+        "keywords": "contratti acquisto rilascio bloccati"
+    },
+    {
+        "code": "ME3N",
+        "descr": "Lista contratti di acquisto.",
+        "keywords": "contratti acquisto"
+    },
+    {
         "code": "ME42",
         "descr": "Modifica richieste di offerta (RdO).",
         "keywords": "richieste offerta RdO request quotation"
@@ -678,6 +688,11 @@
         "code": "ME9F",
         "descr": "Stampa messaggi su OdA.",
         "keywords": "stampa messaggi ordini OdA purchase order"
+    },
+    {
+        "code": "ME9K",
+        "descr": "Messaggi contratti di acquisto.",
+        "keywords": "contratti acquisto"
     },
     {
         "code": "MM02",
