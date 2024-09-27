@@ -300,6 +300,11 @@
         "keywords": "creazione modifica maintenance view"
     },
     {
+        "code": "SE75",
+        "descr": "Anagrafica text objects.",
+        "keywords": "text object testi"
+    },
+    {
         "code": "SE78",
         "descr": "Gestione immagini e oggetti grafici.",
         "keywords": "immagini grafica"
