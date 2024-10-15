@@ -400,6 +400,11 @@
         "keywords": "sessione utente connessioni login"
     },
     {
+        "code": "SM12",
+        "descr": "Elenco lock (su tabelle ecc.)",
+        "keywords": "lock"
+    },
+    {
         "code": "SM20",
         "descr": "Visualizza log attività utenti.",
         "keywords": "log sistema system log utenti audit security"
