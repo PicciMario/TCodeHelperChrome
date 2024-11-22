@@ -76,8 +76,8 @@
     },
     {
         "code": "BD87",
-        "descr": "Riprocessa IDOC in errore.",
-        "keywords": "test IDOC error"
+        "descr": "Riprocessa IDOC in coda (inbound e outbound).",
+        "keywords": "test IDOC error coda inbound outbound"
     },
     {
         "code": "BDBG",
