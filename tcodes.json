@@ -65,6 +65,11 @@
         "keywords": "bapi explorer lista elenco"
     },
     {
+        "code": "BD20",
+        "descr": "Elabora IDOC in coda ingresso.",
+        "keywords": "idoc inbound coda elaborazione"
+    },
+    {
         "code": "BD54",
         "descr": "Gestione Logical Systems",
         "keywords": "idoc logical system interface"
