@@ -380,6 +380,11 @@
         "keywords": "servizi web odata rest"
     },
     {
+        "code": "SITSPMON",
+        "descr": "Monitoraggio sistema webgui/its.",
+        "keywords": "monitoraggio webgui its memoria"
+    },
+    {
         "code": "SLG0",
         "descr": "Crea oggetto e sotto-oggetto log.",
         "keywords": "log applicazione abap"
