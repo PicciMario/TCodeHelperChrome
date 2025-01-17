@@ -400,6 +400,11 @@
         "keywords": "log applicazione abap"
     },
     {
+        "code": "SNAPSHOTS",
+        "descr": "Snapshots sistema.",
+        "keywords": "snapshot sistema monitoraggio"
+    },
+    {
         "code": "SNRO",
         "descr": "Range numeratori.",
         "keywords": "number range numeratori"
