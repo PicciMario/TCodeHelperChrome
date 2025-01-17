@@ -510,6 +510,11 @@
         "keywords": "trace SQL HTTP log"
     },
     {
+        "code": "ST06",
+        "descr": "Monitor sistema operativo.",
+        "keywords": "monitor sistema operativo memoria processore disco"
+    },
+    {
         "code": "ST22",
         "descr": "Elenco errori runtime.",
         "keywords": "errori runtime dump"
