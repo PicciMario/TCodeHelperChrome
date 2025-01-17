@@ -40,6 +40,11 @@
         "keywords": "menu VIM"
     },
     {
+        "code": "/SDF/MON",
+        "descr": "Monitoraggio parametri sistema",
+        "keywords": "trace monitor sistema"
+    },
+    {
         "code": "/UI2/FLP",
         "descr": "Apre Fiori Launchpad.",
         "keywords": "fiori launchpad"
