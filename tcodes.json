@@ -410,6 +410,11 @@
         "keywords": "trasporto cr traduzione localizzazione"
     },
     {
+        "code": "SMQS",
+        "descr": "Configurazione monitor scheduler rfc.",
+        "keywords": "rfc scheduler sistema"
+    },
+    {
         "code": "SM04",
         "descr": "Gestione sessioni utente.",
         "keywords": "sessione utente connessioni login"
