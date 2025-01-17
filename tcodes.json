@@ -225,6 +225,11 @@
         "keywords": "creazione modifica task"
     },
     {
+        "code": "PPOMW",
+        "descr": "Gestione struttura organizzativa.",
+        "keywords": "struttura organizzativa"
+    },
+    {
         "code": "RSSCD100",
         "descr": "Report change documents.",
         "keywords": "change documents log modifiche"
@@ -597,7 +602,12 @@
     {
         "code": "SWI2_ADM1",
         "descr": "Report workitem senza agente.",
-        "keywords": "workitem agente"
+        "keywords": "workitem task agente"
+    },
+    {
+        "code": "SWI5",
+        "descr": "Ricerca workitem per agente.",
+        "keywords": "workitem task utente agente"
     },
     {
         "code": "SWIA",
