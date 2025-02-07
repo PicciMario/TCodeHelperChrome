@@ -405,6 +405,16 @@
         "keywords": "log applicazione abap"
     },
     {
+        "code": "SM69",
+        "descr": "Crea comandi per sistema operativo.",
+        "keywords": "comandi sistema operativo"
+    },
+    {
+        "code": "SM49",
+        "descr": "Esegue comandi per sistema operativo.",
+        "keywords": "comandi sistema operativo"
+    },
+    {
         "code": "SNAPSHOTS",
         "descr": "Snapshots sistema.",
         "keywords": "snapshot sistema monitoraggio"
