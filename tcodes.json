@@ -445,6 +445,11 @@
         "keywords": "lock"
     },
     {
+        "code": "SM13",
+        "descr": "Analisi operazioni update database.",
+        "keywords": "update database"
+    },
+    {
         "code": "SM20",
         "descr": "Visualizza log attività utenti.",
         "keywords": "log sistema system log utenti audit security"
