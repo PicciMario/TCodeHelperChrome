@@ -60,6 +60,11 @@
         "keywords": "fiori launchpad content manager check services"
     },
     {
+        "code": "AL08",
+        "descr": "Gestione sessioni utente (all app servers).",
+        "keywords": "sessione utente connessioni login"
+    },
+    {
         "code": "AL11",
         "descr": "Cartelle accessibili da SAP.",
         "keywords": "cartelle filesystem file share"
