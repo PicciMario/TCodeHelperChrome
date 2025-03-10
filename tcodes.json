@@ -490,9 +490,19 @@
         "keywords": "log task manager processi"
     },
     {
+        "code": "SM51",
+        "descr": "Istanze applicazion server.",
+        "keywords": "application server istanze"
+    },
+    {
         "code": "SM59",
         "descr": "Gestione connessioni esterne.",
         "keywords": "connessioni rfc"
+    },
+    {
+        "code": "SM66",
+        "descr": "Task Manager (all app server).",
+        "keywords": "log task manager processi"
     },
     {
         "code": "SMARTFORMS",
@@ -529,6 +539,11 @@
         "descr": "Customizing.",
         "keywords": "customizing project"
     },    
+    {
+        "code": "STAD",
+        "descr": "Analisi transazioni business",
+        "keywords": "analisi transazioni business log sistema performance"
+    },
     {
         "code": "ST05",
         "descr": "Trace SQL/HTTP/ecc.",
