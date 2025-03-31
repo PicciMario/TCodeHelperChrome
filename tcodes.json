@@ -270,6 +270,11 @@
         "keywords": "cr transport request tools"
     },
     {
+        "code": "SE06",
+        "descr": "System change - componenti sistema.",
+        "keywords": "system change componenti sistema"
+    },
+    {
         "code": "SE10",
         "descr": "Gestione Change Requests.",
         "keywords": "cr change request"
