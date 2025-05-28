@@ -675,6 +675,11 @@
         "keywords": "log IDOC inviato ricevuto"
     },
     {
+        "code": "WE11",
+        "descr": "Cancellazione IDOC",
+        "keywords": "cancellazione IDOC"
+    },
+    {
         "code": "WE14",
         "descr": "Invio IDOC in coda di uscita",
         "keywords": "invio IDOC coda uscita"
