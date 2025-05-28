@@ -240,6 +240,11 @@
         "keywords": "change documents log modifiche"
     },
     {
+        "code": "SAT",
+        "descr": "Analisi runtime programmi.",
+        "keywords": "trace runtime analisi log"
+    },
+    {
         "code": "SBWP",
         "descr": "SAP Business Workplace inbox.",
         "keywords": "SAP Business Workplace inbox"
@@ -550,14 +555,29 @@
         "keywords": "analisi transazioni business log sistema performance"
     },
     {
+        "code": "STAUTHTRACE",
+        "descr": "Trace errori autorizzativi",
+        "keywords": "trace autorizzazioni log"
+    },
+    {
+        "code": "ST01",
+        "descr": "Trace sistema",
+        "keywords": "trace sistema"
+    },
+    {
         "code": "ST05",
-        "descr": "Trace SQL/HTTP/ecc.",
+        "descr": "Trace performance SQL/HTTP/ecc.",
         "keywords": "trace SQL HTTP log"
     },
     {
         "code": "ST06",
         "descr": "Monitor sistema operativo.",
         "keywords": "monitor sistema operativo memoria processore disco"
+    },
+    {
+        "code": "ST12",
+        "descr": "Trace singola transazione.",
+        "keywords": "trace transazione"
     },
     {
         "code": "ST22",
