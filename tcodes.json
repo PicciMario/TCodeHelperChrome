@@ -240,6 +240,11 @@
         "keywords": "change documents log modifiche"
     },
     {
+        "code": "RZ04",
+        "descr": "Configurazione Operation Mode.",
+        "keywords": "operation mode workprocess background dialog profile"
+    },
+    {
         "code": "SAT",
         "descr": "Analisi runtime programmi.",
         "keywords": "trace runtime analisi log"
