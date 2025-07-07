@@ -180,6 +180,11 @@
         "keywords": "legacy system migration"
     },
     {
+        "code": "MB21",
+        "descr": "Creazione impegno (reservation).",
+        "keywords": "impegno reservation stock atp"
+    },
+    {
         "code": "ME32K",
         "descr": "Modifica contratti acquisto.",
         "keywords": "contratto acquisto"
@@ -693,6 +698,11 @@
         "code": "SWUE",
         "descr": "Simulazione eventi.",
         "keywords": "simulazione evento"
+    },
+    {
+        "code": "SWUS_WITH_REFERENCE",
+        "descr": "Crea workitem come copia di uno esistente.",
+        "keywords": "workitem workflow copia"
     },
     {
         "code": "WE05",
