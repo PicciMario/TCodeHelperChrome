@@ -185,6 +185,16 @@
         "keywords": "impegno reservation stock atp"
     },
     {
+        "code": "MB25",
+        "descr": "Lista impegni (reservation).",
+        "keywords": "impegno reservation stock atp"
+    },
+    {
+        "code": "MD04",
+        "descr": "Lista stock/fabbisogni.",
+        "keywords": "stock reservation fabbisogni"
+    },
+    {
         "code": "ME32K",
         "descr": "Modifica contratti acquisto.",
         "keywords": "contratto acquisto"
@@ -193,6 +203,11 @@
         "code": "ME51",
         "descr": "Mostra lista documenti materiale.",
         "keywords": "documento materiale"
+    },
+    {
+        "code": "MMBE",
+        "descr": "Riepilogo stock.",
+        "keywords": "stock"
     },
     {
         "code": "NACE",
